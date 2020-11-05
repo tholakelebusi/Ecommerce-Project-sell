@@ -1,1 +1,130 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+
+
+  <h3>firebase</h3>
+
+  <button mat-raised-button type="submit" *ngIf="btn_add" routerLink="/Addproduct">Add Products</button>
+      <mat-grid-list cols="3" rowHeight="12cm">
+        <mat-grid-tile *ngFor="let bag of productBag| async">
+    
+    
+          <mat-card *ngIf="homeView">
+
+        <div class="pp">
+                <mat-card-header>
+                  <img src="{{bag.productPic}}" class="photo">
+                </mat-card-header>
+        
+                <mat-card-content>
+                  {{bag.productName}}
+                </mat-card-content>
+                <mat-card-content>
+                  {{bag.productPrice}}
+                </mat-card-content>
+        
+                  <button mat-raised-button (click)="viewProduct(pro)">DETAILS</button>
+             
+             
+                </div>
+      </mat-card>
+      </mat-grid-tile>
+      </mat-grid-list>
+      
+
+      <div *ngIf="addform">
+        <h2>Add Product </h2>
+    
+    
+        <input placeholder="product Name" name="Product Name" [(ngModel)]="productName" type="string" matInput required>
+    
+    
+    
+        <input placeholder="Product Price" name="ProductP" [(ngModel)]="productPrice" type="string" matInput required>
+    
+    
+    
+        <input placeholder="Product Description" name="productD" [(ngModel)]="productDescrip" type="string" matInput
+          required>
+    
+        <input placeholder="Product Image" name="productPic" [(ngModel)]="productPic" type="text" matInput required>
+    
+    
+        <input placeholder="Product Description" name="productD" [(ngModel)]="productid" type="string" matInput required>
+    
+    
+        <button type="submit" class="btn btn-success" (click)="addBag()">Add Product</button>
+      </div>
+  
+  <!--
+  <div *ngIf="addform">
+    <h2>Add Product </h2>
+
+
+    <input placeholder="product Name" name="Product Name" [(ngModel)]="productName" type="string" matInput required>
+
+
+
+    <input placeholder="Product Price" name="ProductP" [(ngModel)]="productPrice" type="string" matInput required>
+
+
+
+    <input placeholder="Product Description" name="productD" [(ngModel)]="productDescrip" type="string" matInput
+      required>
+
+    <input placeholder="Product Image" name="productPic" [(ngModel)]="productPic" type="text" matInput required>
+
+
+    <input placeholder="Product Description" name="productD" [(ngModel)]="productid" type="string" matInput required>
+
+
+    <button type="submit" class="btn btn-success" (click)="addBag()">Add Product</button>
+  </div>
+
+
+
+  <button mat-raised-button type="submit" *ngIf="btn_add" routerLink="/Addproduct">Add Products</button>
+
+
+  <mat-grid-list cols="3" rowHeight="12cm">
+    <mat-grid-tile *ngFor="let pro of productBag">
+
+
+      <mat-card *ngIf="homeView">
+
+<div class="pp">
+        <mat-card-header>
+          <img src="{{pro.productPic}}" class="photo">
+        </mat-card-header>
+
+        <mat-card-content>
+          {{pro.productName}}
+        </mat-card-content>
+        <mat-card-content>
+          {{pro.productPrice}}
+        </mat-card-content>
+
+          <button mat-raised-button (click)="viewProduct(pro)">DETAILS</button>
+     
+     
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+-->
+
+   
+    
+
+
+
+</body>
+
+</html>

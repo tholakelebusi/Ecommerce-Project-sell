@@ -1,0 +1,38 @@
+<div class="container">
+	<img width="35%" height="350" style="text-align: center; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSWUH3ujfg1tlGs_u2zFoW1jzKiUAyCZ-i2w&usqp=CAU');background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;">
+
+	<div class="centered">
+		<form>
+			<h2>Edit Product</h2>
+
+	<div *ngFor="let pro of productBag">
+		<input placeholder="{{pro.productPic}}" name="Product Name" [(ngModel)]="productName" type="string" matInput required >
+
+
+
+		<input placeholder="Product Price" name="ProductP" [(ngModel)]="productPrice" type="string" matInput required >
+
+
+
+		<input placeholder="Product Description" name="productD" [(ngModel)]="productDescrip" type="string" matInput required >
+
+		<input placeholder="Product Image" name="productPic" [(ngModel)]="productPic" type="text" matInput required >
+
+		<button type="submit" class="btn btn-success" routerLink="/" >Edit</button>
+	
+    </div>
+
+
+	</form>
+  </div>
+
+
+
+
+
+  </div>
+
+
+  
+

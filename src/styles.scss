@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add application styles & imports to this file! https://images.app.goo.gl/Ke1Chkf1sJFNBtGs7*/
+@import "bootstrap/dist/css/bootstrap.min.css";
+body {
+  position: relative;
+}
+td {
+  padding: 15px;
+  text-align: left;
+}
+table {
+  padding: 1cm;
+}
+th {
+  height: 0.5cm;
+  font-style: italic;
+  font-weight: bolder;
+  background-color: black;
+}
+form {
+  padding: 1cm;
+  margin-left: 8cm;
+  margin-top: 1cm;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -60%);
+  color: black;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-top: 2cm;
+  margin-left: 10%;
+  margin-right: 50%;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
