@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bags } from '../bags';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewproduct',
@@ -8,56 +9,61 @@ import { ProductService } from '../product.service';
   styleUrls: ['./viewproduct.component.scss']
 })
 export class ViewproductComponent implements OnInit {
-  edit_btn:boolean=false;
-  viewpage:boolean=true;
-  selectedBag:any
+  edit_btn: boolean = false;
+  viewpage: boolean = true;
+  selectedBag: any;
 
-  constructor(private bagInfo:ProductService) {}
+  product
 
-  ngOnInit():void {
+  constructor(private bagInfo: ProductService, private router: Router) {
+    this.router.getCurrentNavigation().extras.state
+    this.product = history.state
+  }
+
+  ngOnInit(): void {
     this.selectedBag = this.bagInfo.selectedProduct
- 
-    
+
+
   }
 
 
- 
 
- productNames="";
-  productPrice="";
-  productDescrip="";
- productPics="";
-  productid:number=1;
-  dip1="";
- 
 
-  delete(index)
-  {
-  this.bagInfo.products.splice(index,1);
-  console.log("deleted");
+  productNames = "";
+  productPrice = "";
+  productDescrip = "";
+  productPics = "";
+  productid: number = 1;
+  dip1 = "";
+
+
+  delete(index) {
+    this.bagInfo.products.splice(index,1);
+    console.log("deleted");
   }
 
-updates()
-{
- this.viewpage=false;
-  if(
-  this.bagInfo[this.productid-1].productName=this.productNames
-  )
-  console.log("d");
-   
+  updates() {
+    this.viewpage = false;
+    if (
+      this.bagInfo[this.productid - 1].productName = this.productNames
+    )
+      console.log("d");
+
 
     {
       console.log("did not work");
     }
-   
-}
 
-update(index)
-{
-  if(this.productNames=this.selectedBag[index].productName)
-  {
-    
   }
-}
-  
+
+  viewinfo(product) {
+    this.router.navigateByUrl('/update', { state: product });
+  }
+
+  update(index) {
+    if (this.productNames = this.selectedBag[index].productName) {
+
+    }
+  }
+
 }

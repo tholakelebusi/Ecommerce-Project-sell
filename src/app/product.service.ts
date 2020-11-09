@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Bags} from './bags';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
+import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -47,10 +48,25 @@ export class ProductService {
   getAllBags()
   {
     
-    return this.db.collection("leatherBags").valueChanges();
-   
-  }
+    /**this.db.collection("eatherBags").snapshotChanges().subscribe(results=>{
+      results.forEach((doc)=>{
+        this.products.push(doc.payload.doc.data())
+        this.products.map(prod=>{
+          prod['id']=doc.payload.doc.id;
+        })
+       
+        console.log(this.products);
+    
+    });
+  });*/
 
+
+  console.log(this.products);
+  }
+ getBags() {
+
+  return this.products;
+ }
 
 
 
@@ -66,6 +82,15 @@ addBags(addmorebags:Bags) {
     .catch(function (error) {
       console.error("Error writing document: error");
     });
+}
+
+addBag(bagData : Bags) {
+    console.log(bagData);
+
+      bagData.productid = this.products.length + 1;
+
+      this.products.push(bagData);
+
 }
 
 

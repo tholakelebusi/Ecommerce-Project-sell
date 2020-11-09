@@ -8,10 +8,8 @@
 			<mat-card-subtitle>{{selectedBag.productDescrip}}</mat-card-subtitle>
 
 			<mat-card-subtitle>
-				<button class="color" id="n1"></button>
-			
-				<button class="color" id="n2"></button>
-				<button class="color" id="n3"></button>
+				<img src="https://cdn.shopify.com/s/files/1/0003/2725/4068/articles/leather-540142_1920_1400x.progressive.jpg?v=1560199010" width="120" height="75">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwJcfOrtXQcy3MZbYs0JynInwliXdM2U_Xhw&usqp=CAU" width="120" height="75">
 			</mat-card-subtitle>
 		</mat-card-header>
 
@@ -23,46 +21,16 @@
 
 		</mat-card-header>
 	
-		<button mat-raised-button  routerLink="/update">Update</button>
-
-		
+		<button mat-raised-button  routerLink="/update" (click)="viewinfo(selectedBag)">Update</button>
 		<button mat-raised-button  (click)="delete(selectedBag)" routerLink="/">Delete</button>
 	</mat-card>
 </div>
 
 
 
-<div *ngIf="edit_btn">
-	<img width="35%" height="350" style="text-align: center; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSWUH3ujfg1tlGs_u2zFoW1jzKiUAyCZ-i2w&usqp=CAU');background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255,0.6);
-    background-blend-mode: lighten;">
-
-	<div class="centered">
-		<form>
-			<h2>Edit Product</h2>
-
-	
-		<input placeholder="{{selectedBag.productName}}" name="Product Name" [(ngModel)]="productName" type="string" matInput required >
-
-
-
-		<input placeholder="{{selectedBag.productPrice}}" name="ProductP" [(ngModel)]="productPrice" type="string" matInput required >
-
-
-
-		<input placeholder="{{selectedBag.productDescrip}}" name="productD" [(ngModel)]="productDescrip" type="string" matInput required >
-
-		<input placeholder="{{selectedBag.productPic}}" name="productPic" [(ngModel)]="productPic" type="text" matInput required >
-
-		<button type="submit" class="btn btn-success" (click)="updates()" routerLink="/">Edit</button>
-	
-   
-
-
-	</form>
-  </div>
 
 
 
 
 
-  </div>
+

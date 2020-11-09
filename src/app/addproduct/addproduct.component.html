@@ -3,25 +3,20 @@
     background-blend-mode: lighten;">
 
 	<div class="centered">
-		<form [formGroup]="contactForm">
+		<form [formGroup]="contactForm"  (ngSubmit)="onSubmit()">
 			<h2>Add Product </h2>
 
 	
 		<input placeholder="product Name" name="Product Name" formControlName="productName" type="string" matInput required >
-
-
-
 		<input placeholder="Product Price" name="ProductP" formControlName="productPrice" type="string" matInput required >
-
-
-
 		<input placeholder="Product Description" name="productD" formControlName="productDescrip" type="string" matInput required >
-
 		<input placeholder="Product Image" name="productPic" formControlName="productPic" type="text" matInput required >
 		<input placeholder="Product sizes" name="sizes" formControlName="sizes" type="text" matInput required >
 
 
-		<button type="submit" class="btn btn-success" routerLink="/" (click)="addBag()">Add Product</button>
+
+
+		<button type="submit" class="btn btn-success" >Add Product</button>
 	
 	
 

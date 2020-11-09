@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit():void {
-    this.productBag=this.bagInfo.products
+    this.productBag=this.bagInfo.products;
+   this.getAll
 
   }
 
@@ -41,6 +42,11 @@ export class HomeComponent implements OnInit {
     
   }
 
+  get  getAll() {
+   return this.bagInfo.getBags();
+
+  }
+
   openForm()
 {
   this.homeView=false;
@@ -49,9 +55,16 @@ export class HomeComponent implements OnInit {
   
 }
 
+productName = "";
+productPrice = "";
+productDescrip = "";
+productPic = "";
+productid = "";
 
 
 
+
+/*
 getData()
 {
  
@@ -59,6 +72,7 @@ getData()
   this.Products=this.bagInfo.getAllBags();
   console.log("data retrieved");
 }
+*/
 
   
 
