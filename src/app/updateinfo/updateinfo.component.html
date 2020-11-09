@@ -3,22 +3,22 @@
     background-blend-mode: lighten;">
 
 	<div class="centered">
-		<form>
+		<form [formGroup]="contactForm"  (ngSubmit)="onSubmit()">
 			<h2>Edit Product</h2>
 
 			
 	<div>
-		<input placeholder="productPrice" name="Product Name" [(ngModel)]="productName" type="string" matInput required >
+		<input placeholder="product Name" name="Product Name" formControlName="productName"  type="string" matInput required >
 
 
 
-		<input placeholder="Product Price" name="ProductP" [(ngModel)]="productPrice" type="string" matInput required >
+		<input placeholder="Product Price" name="ProductP"  formControlName="productPrice" type="string" matInput required >
 
 
 
-		<input placeholder="Product Description" name="productD" [(ngModel)]="productDescrip" type="string" matInput required >
+		<input placeholder="Product Description" name="productD" formControlName="productDescrip"type="string" matInput required >
 
-		<input placeholder="Product Image" name="productPic" [(ngModel)]="productPic" type="text" matInput required >
+		<input placeholder="Product Image" name="productPic"formControlName="productPic" type="text" matInput required >
 
 		<button type="submit" class="btn btn-success" routerLink="/" >Edit</button>
 	

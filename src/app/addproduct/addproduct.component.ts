@@ -82,6 +82,7 @@ export class AddproductComponent implements OnInit {
   }
 
   onSubmit() {
+ 
      this.bagInfo.addBag(this.contactForm.value);
      
   this.router.navigate(['/']);

@@ -23,7 +23,8 @@ export class ViewproductComponent implements OnInit {
   ngOnInit(): void {
     this.selectedBag = this.bagInfo.selectedProduct
 
-
+   
+  
   }
 
 
@@ -38,8 +39,9 @@ export class ViewproductComponent implements OnInit {
 
 
   delete(index) {
-    this.bagInfo.products.splice(index,1);
-    console.log("deleted");
+    console.log(index)
+  this.bagInfo.deleteProduct(index.productid)
+    this.router.navigate(['/']);
   }
 
   updates() {

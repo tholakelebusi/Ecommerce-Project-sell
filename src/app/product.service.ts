@@ -18,7 +18,7 @@ export class ProductService {
       productPic:"https://i.pinimg.com/originals/a2/3c/c2/a23cc281cf814ec1bdeda3a1c6ce95c0.jpg",
         productName: "Colene Woven Leather",
         productPrice: "Price:R3450",
-        productDescrip:"ee",productid:2,sizes:"76cm / 30 inches"
+        productDescrip:"ee",productid:1,sizes:"76cm / 30 inches"
     },
     {
       productPic:
@@ -32,14 +32,14 @@ export class ProductService {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSWUH3ujfg1tlGs_u2zFoW1jzKiUAyCZ-i2w&usqp=CAU",
         productName: "Gabe backpack",
         productPrice: "Price:R1750",
-        productDescrip:"ee",productid:2,sizes:"76cm / 30 inches"
+        productDescrip:"ee",productid:3,sizes:"76cm / 30 inches"
     },
     {
       productPic:
         "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         productName: "Gabe backpack",
         productPrice: "Price:R750",
-        productDescrip:"eee",productid:2,sizes:"76cm / 30 inches"
+        productDescrip:"eee",productid:4,sizes:"76cm / 30 inches"
     }
   ];
 
@@ -91,6 +91,14 @@ addBag(bagData : Bags) {
 
       this.products.push(bagData);
 
+}
+
+deleteProduct(id: number) {
+  const product = this.products.findIndex(c => c.productid == id);
+   if (product >-1) {
+  this.products.splice(product,1);
+
+}
 }
 
 

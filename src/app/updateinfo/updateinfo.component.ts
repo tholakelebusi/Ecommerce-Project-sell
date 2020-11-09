@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bags } from '../bags';
 import { ProductService } from '../product.service';
+import { FormGroup, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 
 
@@ -18,13 +19,24 @@ export class UpdateinfoComponent implements OnInit {
   productPic = "";
   productid = "";
   productBag = [];
+  selectedBag: any;
 
-  constructor(private bagInfo: ProductService, private router: Router) { }
+  public contactForm: FormGroup;
+
+  constructor(private bagInfo: ProductService, private _FormBuilder: FormBuilder, private router: Router) { }
   ngOnInit(): void {
-    this.productBag= this.bagInfo.products;
-
+    this.selectedBag = this.bagInfo.selectedProduct
+    console.log(this.selectedBag);
     this.router.getCurrentNavigation().extras.state
-    this.product = history.state
+    this.product = history.state;
+    this.contactForm = this._FormBuilder.group({
+      productName:[this.selectedBag.productName],
+      productPrice: "",
+      productDescrip: "",
+      productPic: "",
+      productid: "",
+      sizes: ""
+    })
   }
 
 
