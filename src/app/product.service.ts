@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Bags} from './bags';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
-import { Console } from 'console';
+
 
 @Injectable({
   providedIn: 'root'
@@ -100,9 +100,20 @@ deleteProduct(id: number) {
 
 }
 }
+updateProduct(bag : Bags){
+  console.log(bag)
+  const index = this.products.findIndex(c => c.productid === bag.productid);
+   if ( index  >-1) {
+  this.products[index] = bag;
+   }
 
 
-
+  }
 
 
 }
+
+
+
+
+

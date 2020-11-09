@@ -13,11 +13,7 @@ import { Router } from '@angular/router';
 export class UpdateinfoComponent implements OnInit {
 
   product
-  productName = "";
-  productPrice = "";
-  productDescrip = "";
-  productPic = "";
-  productid = "";
+
   productBag = [];
   selectedBag: any;
 
@@ -26,28 +22,28 @@ export class UpdateinfoComponent implements OnInit {
   constructor(private bagInfo: ProductService, private _FormBuilder: FormBuilder, private router: Router) { }
   ngOnInit(): void {
     this.selectedBag = this.bagInfo.selectedProduct
-    console.log(this.selectedBag);
-    this.router.getCurrentNavigation().extras.state
-    this.product = history.state;
+    console.log(this.selectedBag.productName);
+ 
+    
+
+
     this.contactForm = this._FormBuilder.group({
-      productName:[this.selectedBag.productName],
-      productPrice: "",
-      productDescrip: "",
-      productPic: "",
-      productid: "",
-      sizes: ""
+      productName: [this.selectedBag.productName],
+      productPrice: [this.selectedBag.productPrice],
+      productDescrip: [this.selectedBag.productDescrip],
+      productPic : [this.selectedBag.productPic]
+
     })
   }
 
 
+  onSubmit() {
+  
+    console.log( this.contactForm.value);
+    this.bagInfo.updateProduct( this.contactForm.value);
+    this.router.navigate(['']);
 
-  update(updating: Bags) {
-    const index = this.productBag.findIndex(c => c.productid === updating.productid);
-    if (index > -1) {
-      this.productBag[index] = updating;
-    }
   }
-
 
 
 
