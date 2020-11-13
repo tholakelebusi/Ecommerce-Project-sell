@@ -18,28 +18,53 @@ export class AuthenticateService {
 
   signUpUser(user)
   {
+    let message=""
     firebase.default.auth().createUserWithEmailAndPassword(user.email,user.password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    message=errorMessage
     console.log(errorMessage);
-  }).then( results =>{
-    console.log("successfull");
-    
+  }).then( user =>{
+    console.log(user);
+
+    if(user){
+      message = "successfully registered"
+      console.log(message)
+    }else{
+
+    }
+
   });
 }
 
 
 signInUser(email,password){
+  
+  let user :any
+    let message = ""
   firebase.default.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    message = errorMessage
     // ...
   }).then(result =>{
-    console.log("success");
+
     
+    user = result
+
+    if(user){
+      message = user.user.email + " has successfully logged in"
+      console.log(message);
+    }else{
+
+      console.log(message);
+    }
+
+    return user.user.email
   });
+
 }
 
 // forgotPassword()

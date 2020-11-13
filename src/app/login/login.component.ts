@@ -21,8 +21,5 @@ export class LoginComponent implements OnInit {
     this.authenticateService.signInUser(this.email, this.password)
   
   }
- resertPassword()
-  {
-   this.authenticateService.resetPassword(this.email);
-  }
+ 
 }

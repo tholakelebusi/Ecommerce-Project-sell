@@ -13,13 +13,13 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form) {
+  // onSubmit(form) {
    
-    //this.authService.resetPassword(form);
+  //   //this.authService.resetPassword(form);
 
 
-  }
-  
+  // }
+
   forgotPassword(email) {
     this.authService.ForgotPassword(email);
   }
