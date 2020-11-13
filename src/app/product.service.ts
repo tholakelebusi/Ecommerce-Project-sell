@@ -12,8 +12,9 @@ export class ProductService {
   selectedProduct :Bags
   
   constructor(private db: AngularFirestore) { }
-
-  products:Bags[] = [
+  products:Bags[]=[];
+ 
+  /**products:Bags[] = [
     {
       productPic:"https://i.pinimg.com/originals/a2/3c/c2/a23cc281cf814ec1bdeda3a1c6ce95c0.jpg",
         productName: "Colene Woven Leather",
@@ -42,11 +43,14 @@ export class ProductService {
         productDescrip:"eee",productid:4,sizes:"76cm / 30 inches"
     }
   ];
-
+*/
 
 
   getAllBags()
   {
+
+
+    return this.db.collection("leatherBags").snapshotChanges();
     
     /**this.db.collection("eatherBags").snapshotChanges().subscribe(results=>{
       results.forEach((doc)=>{
@@ -61,20 +65,25 @@ export class ProductService {
   });*/
 
 
-  console.log(this.products);
+  //console.log(this.products);
   }
+
  getBags() {
 
   return this.products;
  }
 
 
-
+/** 
 addBags(addmorebags:Bags) {
 
       let productid=Math.floor(Math.random()*100);
   this.db.collection("leatherBags").doc(productid.toString()).set({
-    addmorebags
+    productName :addmorebags.productName,
+    productPrice: addmorebags.productPrice,
+    productPic: addmorebags.productPic,
+    productDescrip: addmorebags.productDescrip,
+    sizes : addmorebags.sizes
   })
     .then(function () {
       console.log("Document successfully written!");
@@ -84,24 +93,51 @@ addBags(addmorebags:Bags) {
     });
 }
 
+*/
+
+addBagss(addmorebags:Bags) {
+
+  
+this.db.collection("leatherBags").add({
+productName :addmorebags.productName,
+productPrice: addmorebags.productPrice,
+productPic: addmorebags.productPic,
+productDescrip: addmorebags.productDescrip,
+sizes : addmorebags.sizes
+})
+.then(function () {
+  console.log("Document successfully written to firebase!");
+})
+.catch(function (error) {
+  console.error("Error writing document: error");
+});
+}
+
+/**
 addBag(bagData : Bags) {
     console.log(bagData);
 
       bagData.productid = this.products.length + 1;
 
       this.products.push(bagData);
-
-}
-
-deleteProduct(id: number) {
+      
+ deleteProduct(id: number) {
   const product = this.products.findIndex(c => c.productid == id);
    if (product >-1) {
   this.products.splice(product,1);
 
 }
+
+
+
 }
+
+}
+
+*/
+
 updateProduct(bag : Bags){
-  console.log(bag)
+  console.log(bag.productid);
   const index = this.products.findIndex(c => c.productid === bag.productid);
    if ( index  >-1) {
   this.products[index] = bag;
@@ -111,9 +147,41 @@ updateProduct(bag : Bags){
   }
 
 
+  //deleting
+
+
+  delete()
+  {
+  
+  this.db.collection("leatherBags").doc(this.selectedProduct.productid).delete().then(function() {
+    console.log("Document successfully deleted!!");
+ }).catch(function(error) {
+   console.error("Error removing document: ", error);
+});
+  }
+
+
+
+updateDetails(productId :string, products: Bags )
+{
+  //  console.log("Error removing document: ");
+   console.log(productId)
+      // delete this.selectedProduct.productid;
+      // this.db.doc(this.selectedProduct.productid + this.selectedProduct.productid).update(this.products);
+      return this.db.doc("leatherBags/"+ productId).update(products)
+
+
+//       update(productId :string , product : Product) {
+//         console.log(productId);
+//         return this.db.doc("products/" +productId).update(product);
+//       }      
+// }
+
+
+
 }
 
 
-
+}
 
 

@@ -39,8 +39,8 @@ export class ViewproductComponent implements OnInit {
 
 
   delete(index) {
-    console.log(index)
-  this.bagInfo.deleteProduct(index.productid)
+    //console.log(index)
+  //this.bagInfo.deleteProduct(index.productid)
     this.router.navigate(['/']);
   }
 
@@ -67,5 +67,15 @@ export class ViewproductComponent implements OnInit {
 
     }
   }
+
+
+  deleting()
+  {
+    this.bagInfo.delete();
+    console.log(this.bagInfo.delete());
+  }
+
+
+
 
 }

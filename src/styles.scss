@@ -1,8 +1,9 @@
 /* Add application styles & imports to this file! https://images.app.goo.gl/Ke1Chkf1sJFNBtGs7*/
 @import "bootstrap/dist/css/bootstrap.min.css";
+
 body {
   position: relative;
-  background-image: url("https://images.app.goo.gl/Y76QQPT6bxYL8ZKKA");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3lb03q45Obat-Ef1IP_4kwnJmtwr7H2GIjw&usqp=CAU");
 }
 td {
   padding: 15px;
@@ -43,4 +44,17 @@ form {
 .example-card {
   max-width: 400px;
 }
+.material-icons
+{
+  
+  color: #85144b;
+  font-size: large;
+
+}
+#iconss
+{
+  width: 6cm;
+  height: 3cm;
+}
+
 

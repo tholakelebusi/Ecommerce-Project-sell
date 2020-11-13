@@ -3,7 +3,7 @@ export interface Bags {
     productPrice:string;
     productDescrip:string;
     productPic:string;
-    productid:number;
+    productid:string;
   
     sizes:string;
 

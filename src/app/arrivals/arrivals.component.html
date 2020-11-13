@@ -1,0 +1,43 @@
+
+
+
+
+<h2 class="glow">New Arrivals</h2>
+
+
+
+
+  <div *ngFor="let pro of products">
+  
+    <img src={{pro.productPic}} class="photo">
+    <img src={{pro.productName}} class="photo">
+    <img src={{pro.productPrice}} class="photo">
+    <img src={{pro.sizes}} class="photo">
+
+</div>
+
+
+<!-- <mat-grid-list cols="4" rowHeight="12cm">
+    <mat-grid-tile *ngFor="let pro of productList">
+
+
+      <mat-card *ngIf="homeView">
+
+<div class="pp">
+        <mat-card-header>
+          <img src={{pro.productPic}} class="photo">
+        </mat-card-header>
+
+        <mat-card-content>
+          {{pro.productName}}
+        </mat-card-content>
+        <mat-card-content>
+          {{pro.productPrice}}
+        </mat-card-content>
+          <button mat-raised-button (click)="viewProduct(pro)">DETAILS</button>
+     
+     
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> -->

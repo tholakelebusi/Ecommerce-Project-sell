@@ -7,7 +7,10 @@ import { AddproductComponent } from "./addproduct/addproduct.component";
 import {HomeComponent} from "./home/home.component";
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { UpdateinfoComponent } from './updateinfo/updateinfo.component';
-;
+import { ArrivalsComponent } from './arrivals/arrivals.component';
+import { ChildBagsComponent } from './child-bags/child-bags.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 const routes: Routes = [
   {
@@ -33,6 +36,19 @@ const routes: Routes = [
   {
     path:"update",
     component:UpdateinfoComponent
+  }
+  ,
+  {
+    path:"stock",
+    component:ArrivalsComponent 
+  },
+  {
+    path:"babies",
+    component:ChildBagsComponent
+  },
+ {
+    path:"reset",
+    component:ResetPasswordComponent
   }
  
 ];

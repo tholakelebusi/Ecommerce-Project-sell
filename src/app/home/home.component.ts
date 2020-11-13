@@ -13,68 +13,84 @@ import { ProductService } from '../product.service';
 })
 export class HomeComponent implements OnInit {
 
-  productBag=[];
+  productBag = [];
   infor: boolean = false;
-  addform:boolean=false;
-  homeView:boolean=true;
-  btn_add:boolean=true;
-  moreinfor:boolean=false;
+  addform: boolean = false;
+  homeView: boolean = true;
+  btn_add: boolean = true;
+  moreinfor: boolean = false;
+  productList: Bags[] = [];
+  Products: Observable<any[]>
 
-  Products:Observable<any[]>
 
-  
-  constructor(private bagInfo:ProductService,  private router: Router) {}
+  constructor(private bagInfo: ProductService, private router: Router) { }
 
-  
 
-  ngOnInit():void {
-    this.productBag=this.bagInfo.products;
-   this.getAll
 
+  ngOnInit(): void {
+    this.productBag = this.bagInfo.products;
+    this.getAll
+    this.getProducts();
   }
 
   viewProduct(pro) {
-   
-  //  this.moreinfor=true;
-  this.bagInfo.selectedProduct = pro
+
+    //  this.moreinfor=true;
+    this.bagInfo.selectedProduct = pro
     this.router.navigate(['/view']);
 
+
+  }
+
+  get getAll() {
+    return this.bagInfo.getBags();
+
+  }
+
+  getProducts() {
+    this.bagInfo.getAllBags().subscribe((res) => {
+      this.productList = res.map((product) => {
+
+        return {
+          ...product.payload.doc.data(),
+          productid: product.payload.doc.id
+        } as Bags
+
+
+      });
+     // console.log(this.productList);
+
+    });
+
+  }
+
+  openForm() {
+    this.homeView = false;
+    this.addform = true;
+    this.btn_add = false;
+
+  }
+
+  productName = "";
+  productPrice = "";
+  productDescrip = "";
+  productPic = "";
+  productid = "";
+
+
+
+
+  /*
+  getData()
+  {
+   
     
+    this.Products=this.bagInfo.getAllBags();
+    console.log("data retrieved");
   }
-
-  get  getAll() {
-   return this.bagInfo.getBags();
-
-  }
-
-  openForm()
-{
-  this.homeView=false;
-  this.addform=true;
-  this.btn_add=false;
-  
-}
-
-productName = "";
-productPrice = "";
-productDescrip = "";
-productPic = "";
-productid = "";
+  */
 
 
-
-
-/*
-getData()
-{
- 
-  
-  this.Products=this.bagInfo.getAllBags();
-  console.log("data retrieved");
-}
-*/
-
-  
 
 
 

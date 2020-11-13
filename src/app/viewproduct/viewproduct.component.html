@@ -6,11 +6,6 @@
 			<mat-card-title>{{selectedBag.productName}}</mat-card-title>
 			<mat-card-subtitle>{{selectedBag.productPrice}} </mat-card-subtitle>
 			<mat-card-subtitle>{{selectedBag.productDescrip}}</mat-card-subtitle>
-
-			<mat-card-subtitle>
-				<img src="https://cdn.shopify.com/s/files/1/0003/2725/4068/articles/leather-540142_1920_1400x.progressive.jpg?v=1560199010" width="120" height="75">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwJcfOrtXQcy3MZbYs0JynInwliXdM2U_Xhw&usqp=CAU" width="120" height="75">
-			</mat-card-subtitle>
 		</mat-card-header>
 
 		<mat-card-header>
@@ -21,8 +16,9 @@
 
 		</mat-card-header>
 	
-		<button mat-raised-button  routerLink="/update" (click)="viewinfo(selectedBag)">Update</button>
-		<button mat-raised-button  (click)="delete(selectedBag)">Delete</button>
+		<button mat-raised-button  routerLink="/update" (click)="updating()">Update</button>
+	
+		<button mat-raised-button  routerLink="/" (click)=deleting()>Delete</button>
 	</mat-card>
 </div>
 

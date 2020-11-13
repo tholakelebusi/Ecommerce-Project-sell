@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,11 @@ import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ProductService } from './product.service';
+import { AuthenticateService } from './authenticate.service';
+
+import { ArrivalsComponent } from './arrivals/arrivals.component';
+import { ChildBagsComponent } from './child-bags/child-bags.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -38,7 +44,10 @@ import { ProductService } from './product.service';
     AddproductComponent,
     HomeComponent,
     ViewproductComponent,
-    UpdateinfoComponent
+    UpdateinfoComponent,
+    ArrivalsComponent,
+    ChildBagsComponent,
+    ResetPasswordComponent
   
     
    
@@ -52,7 +61,9 @@ import { ProductService } from './product.service';
     RouterModule,
     MatGridListModule,
     ReactiveFormsModule,AngularFireModule.initializeApp(environment.firebaseConfig),
-AngularFireDatabaseModule
+      AngularFireDatabaseModule,
+      AngularFireAuthModule,
+      AngularFirestoreModule,
   ],
   providers:[ProductService],
    schemas:[CUSTOM_ELEMENTS_SCHEMA],

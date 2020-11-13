@@ -4,35 +4,55 @@
     <title></title>
   </head>
   <body>
-<div class="container">
-	<img width="30%" height="250" style="text-align: center; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSWUH3ujfg1tlGs_u2zFoW1jzKiUAyCZ-i2w&usqp=CAU');background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255,0.6);
-    background-blend-mode: lighten;">
 
-	<div class="centered">
+	<div class="container">
+	
 
+		<div class="centered">
+<!-- Default form login -->
+<form class="text-center border border-light p-5">
 
-		<form>
+<h2>Sign in</h2>
 
-			<mat-card>
-				<mat-card-header>
-					Login
-				</mat-card-header>
-
-				<div class="fields">
-					<input placeholder="Username" name="Username" type="text" matInput required >
-  	</div>
-
-					<div class="fields">
-						<input placeholder="Password" name="password"  type="text" matInput required >
-  	</div>
-						<button mat-raised-button  type="submit" class="btn btn-success" routerLink="/home">Submit</button>
-						<button mat-raised-button type="submit" class="btn btn-success" routerLink="/register">Register</button>
-			</mat-card>
-		</form>
-
-	</div>
+	
+	<div>
+	<label>Email</label>
+	<input [(ngModel)]="email" name="email" type="text" >
+</div>
+<div>
+	<label>password</label>
+	<input [(ngModel)]="password" name="password" type="password">
 </div>
 
+
+  
+	
+	  <div>
+		
+
+		<button type="button" (click)="login()" class="btn btn-primary" id="submit_btn">Submit</button>
+
+	</div>
+	 <div class="resetLink"> 
+		<a routerLink="/reset" (click)=" resertPassword()">Forgot password?</a>
+	</div>
+	
+  
+	
+	
+
+	 <p>Not a member?
+	<button routerLink="/register" type="submit" class="btn btn-success" id="submit_btn" >Register</button>
+	</p> 
+
+
+  
+  </form>
+  </div>
+  </div>
+
+ 
 </body>
 </html>
-<router-outlet></router-outlet>
+
+

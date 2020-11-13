@@ -20,26 +20,20 @@ p {
   height: 3cm;
   width: 3cm;
 }
-#n1
-{
-    color: black;
-    background-color: black;
-    height: 1cm;
-    width: 1cm;
-}
-#n2
-{
-    background-color:#624a2e;
-    height: 1cm;
-    width: 1cm;
-}
-#n3
-{
-    background-color: #DE9408;
-    height: 1cm;
-    width: 1cm;
-}
 .adding
 {
     margin-left:2cm;
 }
+.mat-card-subtitle
+{
+font-weight: bolder;
+font-size: 16px;
+}
+
+h4{
+  font-style: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  font-variant: small-caps;
+}
+

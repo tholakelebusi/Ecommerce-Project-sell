@@ -16,18 +16,20 @@ export class UpdateinfoComponent implements OnInit {
 
   productBag = [];
   selectedBag: any;
+  data: any;
 
   public contactForm: FormGroup;
 
   constructor(private bagInfo: ProductService, private _FormBuilder: FormBuilder, private router: Router) { }
   ngOnInit(): void {
     this.selectedBag = this.bagInfo.selectedProduct
-    console.log(this.selectedBag.productName);
+
  
     
 
 
     this.contactForm = this._FormBuilder.group({
+      productid :[this.selectedBag.productid],
       productName: [this.selectedBag.productName],
       productPrice: [this.selectedBag.productPrice],
       productDescrip: [this.selectedBag.productDescrip],
@@ -39,11 +41,26 @@ export class UpdateinfoComponent implements OnInit {
 
   onSubmit() {
   
-    console.log( this.contactForm.value);
-    this.bagInfo.updateProduct( this.contactForm.value);
+  
+    this.bagInfo.updateDetails(this.selectedBag.productid,this.contactForm.value);
     this.router.navigate(['']);
 
+
   }
+  
+  // onSubmit() {
+  //   // this._productService.editProduct(this.contactForm.value);
+  //   this._productService.update(this.data.id,this.contactForm.value);
+  //   this.dialogRef.close();
+  // }
+
+  
+  // updating()
+  // {
+  // this.bagInfo.updateDetails();
+  // this.router.navigate(['']);
+  // console.log("hereee");
+  // }
 
 
 

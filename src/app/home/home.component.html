@@ -7,18 +7,21 @@
 
 <body>
 
-  <button mat-raised-button type="submit" *ngIf="btn_add" routerLink="/Addproduct">Add Products</button>
+  <button mat-raised-button type="submit"  *ngIf="btn_add" class="add_btn" routerLink="/Addproduct">Add Products</button>
+  
+ 
+ 
 
 
-  <mat-grid-list cols="3" rowHeight="12cm">
-    <mat-grid-tile *ngFor="let pro of  getAll">
+  <mat-grid-list cols="4" rowHeight="12cm">
+    <mat-grid-tile *ngFor="let pro of productList">
 
 
       <mat-card *ngIf="homeView">
 
 <div class="pp">
         <mat-card-header>
-          <img src="{{pro.productPic}}" class="photo">
+          <img src={{pro.productPic}} class="photo">
         </mat-card-header>
 
         <mat-card-content>
@@ -27,7 +30,6 @@
         <mat-card-content>
           {{pro.productPrice}}
         </mat-card-content>
-
           <button mat-raised-button (click)="viewProduct(pro)">DETAILS</button>
      
      
