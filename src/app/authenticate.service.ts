@@ -18,6 +18,8 @@ export class AuthenticateService {
 
   signUpUser(user)
   {
+    var database = firebase.default.database();
+
     let message=""
     firebase.default.auth().createUserWithEmailAndPassword(user.email,user.password).catch((error) =>{
     // Handle Errors here.
@@ -25,12 +27,19 @@ export class AuthenticateService {
     var errorMessage = error.message;
     message=errorMessage
     console.log(errorMessage);
-  }).then( user =>{
-    console.log(user);
+  }).then( results =>{
+    console.log(results);
 
-    if(user){
+    if(results){
       message = "successfully registered"
-      console.log(message)
+      firebase.default.database().ref('users/' + results.user.uid).set({
+        name: user.name,
+        email: user.email,
+       surname : user.surname
+    
+      });
+      console.log(message);
+
     }else{
 
     }
@@ -101,13 +110,12 @@ signInUser(email,password){
 //   } else { this.IsResetFormValid = false; }
 // }
 
-
-// resetPassword(email: string) {
-//   var auth = firebase.default.auth();
-//   return auth.sendPasswordResetEmail(email)
-//     .then(() => console.log("email sent"))
-//     .catch((error) => console.log(error))
-// }
+ resetPassword(email: string) {
+   var auth = firebase.default.auth();
+   return auth.sendPasswordResetEmail(email)
+    .then(() => console.log("email sent"))
+    .catch((error) => console.log(error))
+ }
 
 ForgotPassword(passwordResetEmail) {
       return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
@@ -117,4 +125,18 @@ ForgotPassword(passwordResetEmail) {
         window.alert(error)
       })
     }
+
+
+
+    logout(){
+      firebase.default.auth().signOut().then(()  =>{
+        // Sign-out successful.
+        console.log("Sign-out successful.");
+        
+      }).catch(function(error) {
+        console.log(error);
+  
+      });
+
+}
 }

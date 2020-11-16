@@ -21,12 +21,12 @@
 				<div class="fields">
 					<label>First Name</label>
 
-					<input [(ngModel)]="firstName" name="firstName" type="string" matInput required >
+					<input [(ngModel)]="name" name="name" type="string" matInput required >
 </div>
 
 					<div class="fields">
 						<label>Last Name</label>
-						<input [(ngModel)]="lastName" name="lastName"  type="string" matInput required >
+						<input [(ngModel)]="surname" name="surname"  type="string" matInput required >
 </div>
 						<div class="fields">
 							<label>password</label>
@@ -34,7 +34,7 @@
 							<input [(ngModel)]="password" name="password" type="password" matInput required >
 </div>
 
-							<button mat-raised-button type="submit" class="btn btn-success" (click)="signUp()"routerLink="/login" id="submit_btn" >Submit</button>
+							<button mat-raised-button type="submit" class="btn btn-success" (click)="signUp()" id="submit_btn" >Submit</button>
 
 		</form>
 	</div>
