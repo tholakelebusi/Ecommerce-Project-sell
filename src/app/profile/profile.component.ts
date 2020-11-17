@@ -18,10 +18,10 @@ export class ProfileComponent implements OnInit {
 
 
   logout(){
-    console.log("loggin out");
+    // console.log("loggin out");
     
-    this.autheServive.logout()
-    this.router.navigateByUrl("/login")
+    // this.autheServive.logout()
+    // this.router.navigateByUrl("/login")
 
   }
 
