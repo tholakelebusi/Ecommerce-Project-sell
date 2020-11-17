@@ -33,6 +33,8 @@ import { ArrivalsComponent } from './arrivals/arrivals.component';
 import { ChildBagsComponent } from './child-bags/child-bags.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -50,7 +52,8 @@ import { ProfileComponent } from './profile/profile.component';
     ArrivalsComponent,
     ChildBagsComponent,
     ResetPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavbarComponent
   
     
    
@@ -64,6 +67,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     RouterModule,
     MatGridListModule,
+ 
     ReactiveFormsModule,AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFireDatabaseModule,
       AngularFireAuthModule,

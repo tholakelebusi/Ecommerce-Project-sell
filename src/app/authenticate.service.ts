@@ -9,14 +9,9 @@ import { Authenticate } from './authenticate';
   providedIn: 'root'
 })
 export class AuthenticateService {
-
+  userInfo:Authenticate;
   constructor(private db: AngularFirestore,
     public afAuth: AngularFireAuth) { }
-
-
-    userInfo:Authenticate
-
-
 
 
   signUpUser(user)
@@ -57,7 +52,7 @@ signInUser(email,password){
   
   let user :any
   let message = "";
-  
+
   firebase.default.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
@@ -151,11 +146,12 @@ getCurrentUser(){
    
   firebase.default.auth().onAuthStateChanged((user) =>{
     if (user) {
+      console.log(user)
       var userId = user.uid;
       firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
       this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
-        console.log(this.userInfo);
-//  return userInfo
+      console.log(this.userInfo);
+ 
       })
      } else {
       console.log("user not logged in");

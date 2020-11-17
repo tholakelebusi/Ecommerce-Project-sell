@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
   constructor(public authenticateService: AuthenticateService, public router: Router) { }
 
   ngOnInit(): void {
-    this.authenticateService.getCurrentUser()
+ 
 
   }
 
   login() {
     this.authenticateService.signInUser(this.email, this.password)
     this.loggonInUser = this.authenticateService.userInfo
-    this.router.navigateByUrl("/profile")
+    this.router.navigateByUrl("/")
 
   }
 
