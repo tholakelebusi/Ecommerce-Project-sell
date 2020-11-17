@@ -1,21 +1,26 @@
   
-<p>profile works!</p>
-<label>
-    {{userProfile.name}}
-</label>
-<br>
-<label>
-    {{userProfile.phonenumber}}
-</label>
-<br>
 
 <label>
-    {{userProfile.age}}
+ <p>Name:{{userProfile.name}}</p>
+</label>
+<br>
+<label>
+    <p>Surname:{{userProfile.surname}}</p>
 </label>
 <br>
 
 <label>
-    {{userProfile.email}}
+    <p>Email:{{userProfile.email}}</p>
 </label>
+<br>
 
+<label>
+    <p>Age:{{userProfile.age}}</p>
+</label>
+<br>
+
+<label>
+    <p>Cell Number:</p>{{userProfile.cellNo}}</p>
+</label>
+<br>
 <button (click)="logout()">Logout</button>

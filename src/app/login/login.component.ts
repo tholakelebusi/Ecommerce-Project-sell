@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticateService } from '../authenticate.service';
 
 @Component({
@@ -10,15 +11,17 @@ export class LoginComponent implements OnInit {
 
   email
   password
- 
-  constructor(public authenticateService:AuthenticateService){}
+  loggonInUser
+  constructor(public authenticateService:AuthenticateService, public router:Router){}
 
-  ngOnInit(): void {
+  ngOnInit(): void {this.authenticateService.getCurrentUser()
     
   }
  
   login(){
     this.authenticateService.signInUser(this.email, this.password)
+    this.loggonInUser = this.authenticateService.userInfo
+   this.router.navigateByUrl("/profile")
   
   }
  

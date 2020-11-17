@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../authenticate.service';
 import { Authenticate } from '../authenticate';
-import { log } from 'console';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
