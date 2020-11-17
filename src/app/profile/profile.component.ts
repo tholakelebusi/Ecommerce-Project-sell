@@ -11,7 +11,8 @@ export class ProfileComponent implements OnInit {
   userProfile
   constructor(public autheServive:AuthenticateService, public router:Router) { }
 
-  ngOnInit(): void { this.userProfile = this.autheServive.userInfo
+  ngOnInit(): void { 
+    this.userProfile = this.autheServive.userInfo
     console.log(this.userProfile);
   }
 

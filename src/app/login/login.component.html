@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-  </head>
-  <body>
+
+<head>
+	<title></title>
+</head>
+
+<body>
 
 	<div class="container">
-	
+
 
 		<div class="centered">
-<!-- Default form login -->
-<form class="text-center border border-light p-5">
+			<!-- Default form login -->
+			<form class="text-center border border-light p-5">
 
-<h2>Sign in</h2>
-
-	
-	<div>
-	<label>Email</label>
-	<input [(ngModel)]="email" name="email" type="text" >
-</div>
-<div>
-	<label>password</label>
-	<input [(ngModel)]="password" name="password" type="password">
-</div>
+				<h2>Sign in</h2>
 
 
-  
-	
-	  <div>
-		
+				<div>
+					<label>Email</label>
+					<input [(ngModel)]="email" name="email" type="text">
+				</div>
+				<div>
+					<label>password</label>
+					<input [(ngModel)]="password" name="password" type="password">
+				</div>
 
-		<button type="button" (click)="login()" class="btn btn-primary" id="submit_btn">Submit</button>
 
+
+
+				<div>
+
+
+					<button type="button" (click)="login()" class="btn btn-primary" id="submit_btn"
+						routerLink="">Submit</button>
+
+				</div>
+				<div class="resetLink">
+					<a routerLink="/reset" (click)=" resertPassword()">Forgot password?</a>
+				</div>
+
+
+
+
+
+				<p>
+					<a routerLink="/register">Not a member</a>
+				</p>
+
+
+
+			</form>
+		</div>
 	</div>
-	 <div class="resetLink"> 
-		<a routerLink="/reset" (click)=" resertPassword()">Forgot password?</a>
-	</div>
-	
-  
-	
-	
-
-	 <p>
-	<a routerLink="/register" >Not a member</a>
-	</p> 
 
 
-  
-  </form>
-  </div>
-  </div>
-
- 
 </body>
+
 </html>
-
-

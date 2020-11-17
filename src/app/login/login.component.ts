@@ -12,17 +12,18 @@ export class LoginComponent implements OnInit {
   email
   password
   loggonInUser
-  constructor(public authenticateService:AuthenticateService, public router:Router){}
+  constructor(public authenticateService: AuthenticateService, public router: Router) { }
 
-  ngOnInit(): void {this.authenticateService.getCurrentUser()
-    
+  ngOnInit(): void {
+    this.authenticateService.getCurrentUser()
+
   }
- 
-  login(){
+
+  login() {
     this.authenticateService.signInUser(this.email, this.password)
     this.loggonInUser = this.authenticateService.userInfo
-   this.router.navigateByUrl("/profile")
-  
+    this.router.navigateByUrl("/profile")
+
   }
- 
+
 }

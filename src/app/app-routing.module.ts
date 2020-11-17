@@ -51,10 +51,10 @@ const routes: Routes = [
     path:"reset",
     component:ResetPasswordComponent
   },
-  {
-     path:"profile",
-  component:ProfileComponent
-  }
+  // {
+  //    path:"profile",
+  // component:ProfileComponent
+  // }
  
 ];
 

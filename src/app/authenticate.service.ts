@@ -56,7 +56,8 @@ export class AuthenticateService {
 signInUser(email,password){
   
   let user :any
-    let message = ""
+  let message = "";
+  
   firebase.default.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
