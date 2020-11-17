@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { Authenticate } from './authenticate';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ export class AuthenticateService {
   constructor(private db: AngularFirestore,
     public afAuth: AngularFireAuth) { }
 
+
+    userInfo:Authenticate
 
 
 
@@ -35,7 +38,9 @@ export class AuthenticateService {
       firebase.default.database().ref('users/' + results.user.uid).set({
         name: user.name,
         email: user.email,
-       surname : user.surname
+       surname : user.surname,
+       age:user.age,
+       cellNo:user.cellNo
     
       });
       console.log(message);
@@ -139,4 +144,27 @@ ForgotPassword(passwordResetEmail) {
       });
 
 }
+
+//    this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo);
+getCurrentUser(){
+   
+  firebase.default.auth().onAuthStateChanged((user) =>{
+    if (user) {
+      var userId = user.uid;
+     firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
+      this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
+        console.log(this.userInfo);
+        // return userInfo
+      })
+    } else {
+      console.log("user not logged in");
+      
+    }
+  });
+
+  
+  
+}
+
+
 }

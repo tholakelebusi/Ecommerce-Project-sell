@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   password
   name
   surname
+  age
+  cellNo
   user: Authenticate
   constructor(public authenticateService: AuthenticateService) { }
 
@@ -21,11 +23,8 @@ export class RegisterComponent implements OnInit {
 
 
   signUp() {
-    this.user = new Authenticate(this.
-      name, this.surname, this.email, this.password);
-  
-      
-    this.user = new Authenticate(this.name, this.surname, this.email, this.password);
+
+    this.user = new Authenticate(this.name, this.surname, this.email, this.password,this.age,this.cellNo);
     console.log(this.user);
     this.authenticateService.signUpUser(this.user)
   }

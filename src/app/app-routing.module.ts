@@ -10,6 +10,7 @@ import { UpdateinfoComponent } from './updateinfo/updateinfo.component';
 import { ArrivalsComponent } from './arrivals/arrivals.component';
 import { ChildBagsComponent } from './child-bags/child-bags.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
  {
     path:"reset",
     component:ResetPasswordComponent
+  },
+  {
+     path:"profile",
+  component:ProfileComponent
   }
  
 ];

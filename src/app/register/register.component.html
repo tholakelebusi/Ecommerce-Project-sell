@@ -13,10 +13,7 @@
 	<div class="centered">
 		<form>
 			<h2>Registration Form</h2>
-			<div class="fields">
-				<label>Email</label>
-				<input [(ngModel)]="email" name="email" type="text" matInput required>
-</div>
+		
 
 				<div class="fields">
 					<label>First Name</label>
@@ -28,6 +25,24 @@
 						<label>Last Name</label>
 						<input [(ngModel)]="surname" name="surname"  type="string" matInput required >
 </div>
+
+
+
+<div class="fields">
+	<label>Age</label>
+	<input [(ngModel)]="age" name="age" type="text" matInput required>
+</div>
+<div class="fields">
+	<label>Cell Number</label>
+	<input [(ngModel)]="cellNo" name="age" type="text" matInput required>
+</div>
+
+
+
+<div class="fields">
+	<label>Email</label>
+	<input [(ngModel)]="email" name="email" type="text" matInput required>
+</div>
 						<div class="fields">
 							<label>password</label>
 
@@ -35,6 +50,9 @@
 </div>
 
 							<button mat-raised-button type="submit" class="btn btn-success" (click)="signUp()" id="submit_btn" >Submit</button>
+							<p>
+								<a routerLink="/login" >Already a Member</a>
+								</p> 
 
 		</form>
 	</div>

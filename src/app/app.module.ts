@@ -31,6 +31,7 @@ import { AuthenticateService } from './authenticate.service';
 import { ArrivalsComponent } from './arrivals/arrivals.component';
 import { ChildBagsComponent } from './child-bags/child-bags.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -47,7 +48,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     UpdateinfoComponent,
     ArrivalsComponent,
     ChildBagsComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ProfileComponent
   
     
    
