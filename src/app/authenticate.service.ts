@@ -151,15 +151,15 @@ getCurrentUser(){
   firebase.default.auth().onAuthStateChanged((user) =>{
     if (user) {
       var userId = user.uid;
-     firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
+      firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
       this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
         console.log(this.userInfo);
-        // return userInfo
+//  return userInfo
       })
-    } else {
+     } else {
       console.log("user not logged in");
       
-    }
+  }
   });
 
   
