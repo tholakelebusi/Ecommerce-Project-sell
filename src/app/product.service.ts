@@ -44,6 +44,19 @@ export class ProductService {
     }
   ];
 */
+product: any = []
+getProducts() {
+  this.db.collection("leatherBags").snapshotChanges().subscribe(results => {
+    results.forEach((doc) => {
+      this.product.push(doc.payload.doc.data())
+      this.product.map(prod => {
+        prod['id'] = doc.payload.doc.id;
+      })
+     // console.log(this.product);
+    });
+  });
+  return this.product
+}
 
 
   getAllBags()
@@ -72,6 +85,7 @@ export class ProductService {
 
   return this.products;
  }
+ 
 
 
 /** 
