@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 })
 export class ProductService {
 
-  selectedProduct :Bags
+  selectedProduct :Bags;
+   cart :any
   
   constructor(private db: AngularFirestore) { }
   products:Bags[]=[];
@@ -62,8 +63,8 @@ getProducts() {
   getAllBags()
   {
 
-
-    return this.db.collection("leatherBags").snapshotChanges();
+    this.cart = this.db.collection("leatherBags").snapshotChanges();
+    return this.cart;
     
     /**this.db.collection("eatherBags").snapshotChanges().subscribe(results=>{
       results.forEach((doc)=>{

@@ -149,7 +149,7 @@ getCurrentUser(){
       console.log(user)
       var userId = user.uid;
       firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
-      this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
+      this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo,userProfile.val().password)
       console.log(this.userInfo);
  
       })

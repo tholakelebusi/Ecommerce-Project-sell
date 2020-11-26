@@ -22,9 +22,6 @@ export class ViewproductComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedBag = this.bagInfo.selectedProduct
-
-   
-  
   }
 
 
