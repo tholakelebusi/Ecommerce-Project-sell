@@ -38,35 +38,19 @@ export class ViewproductComponent implements OnInit {
   dip1 = "";
 
 
-  delete(index) {
+  delete() {
     //console.log(index)
   //this.bagInfo.deleteProduct(index.productid)
     this.router.navigate(['/']);
   }
 
-  updates() {
-    this.viewpage = false;
-    if (
-      this.bagInfo[this.productid - 1].productName = this.productNames
-    )
-      console.log("d");
-
-
-    {
-      console.log("did not work");
-    }
-
-  }
+ 
 
   viewinfo(product) {
     this.router.navigateByUrl('/update', { state: product });
   }
 
-  update(index) {
-    if (this.productNames = this.selectedBag[index].productName) {
-
-    }
-  }
+ 
 
 
   deleting()

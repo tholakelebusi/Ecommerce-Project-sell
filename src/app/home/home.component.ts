@@ -30,8 +30,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.productBag = this.bagInfo.products;
     this.getAll
-    //this.getProducts()
-    this.getBagList()
+    this.getProducts();
   }
 
   viewProduct(pro) {
@@ -48,32 +47,22 @@ export class HomeComponent implements OnInit {
 
   }
 
-  pro:any
-  
+  getProducts() {
+    this.bagInfo.getAllBags().subscribe((res) => {
+      this.productList = res.map((product) => {
 
- 
+        return {
+          ...product.payload.doc.data(),
+          productid: product.payload.doc.id
+        } as Bags
 
-  getBagList()
-  {
-    this.pro=this.bagInfo.getProducts()
+
+      });
+     // console.log(this.productList);
+
+    });
+
   }
-
-  // getProducts() {
-  //   this.bagInfo.getAllBags().subscribe((res) => {
-  //     this.productList = res.map((product) => {
-
-  //       return {
-  //         ...product.payload.doc.data(),
-  //         productid: product.payload.doc.id
-  //       } as Bags
-
-
-  //     });
-  //    // console.log(this.productList);
-
-  //   });
-
-  // }
 
   openForm() {
     this.homeView = false;

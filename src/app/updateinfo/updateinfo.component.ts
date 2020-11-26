@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class UpdateinfoComponent implements OnInit {
 
   product
-
   productBag = [];
   selectedBag: any;
   data: any;
@@ -44,6 +43,7 @@ export class UpdateinfoComponent implements OnInit {
   
     this.bagInfo.updateDetails(this.selectedBag.productid,this.contactForm.value);
     this.router.navigate(['']);
+    console.log("im");
 
 
   }
@@ -55,12 +55,12 @@ export class UpdateinfoComponent implements OnInit {
   // }
 
   
-  // updating()
-  // {
-  // this.bagInfo.updateDetails();
-  // this.router.navigate(['']);
-  // console.log("hereee");
-  // }
+  updating()
+  {
+  this.bagInfo.updateProduct(this.data)
+  this.router.navigate(['']);
+  console.log("hereee");
+  }
 
 
 
