@@ -8,24 +8,11 @@ import { AuthenticateService } from '../authenticate.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedInnn:boolean=false;
-   isLoggedIn : any;
 
-  constructor(public authService : AuthenticateService,private router : Router) { 
-     this.isLoggedIn = authService.getCurrentUser()
- 
-  }
-
+  
+  constructor(){}
   ngOnInit(): void {
   }
 
-  
-  logout(){
-    // console.log("loggin out");
-    
-      this.authService.logout()
-     this.router.navigateByUrl("/login")
-this.isLoggedInnn=true;
-  }
 
 }

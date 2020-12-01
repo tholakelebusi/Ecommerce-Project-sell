@@ -34,7 +34,7 @@
 </div>
 <div class="fields">
 	<label>Cell Number</label>
-	<input [(ngModel)]="cellNo" name="cellNo" type="text" matInput required>
+	<input [(ngModel)]="cellNo" name="cellNo" type="number" matInput required>
 </div>
 
 
@@ -46,7 +46,7 @@
 						<div class="fields">
 							<label>password</label>
 
-							<input [(ngModel)]="password" name="password" type="password" matInput required >
+							<input [(ngModel)]="password" name="password" type="string" matInput required >
 </div>
 
 							<button mat-raised-button type="submit" class="btn btn-success" (click)="signUp()" id="submit_btn" >Submit</button>

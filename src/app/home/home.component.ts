@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   moreinfor: boolean = false;
   productList: Bags[] = [];
   Products: Observable<any[]>
+ 
 
 
   constructor(private bagInfo: ProductService, private router: Router) { }

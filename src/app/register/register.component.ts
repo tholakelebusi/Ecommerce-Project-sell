@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   signUp() {
 
-    this.user = new Authenticate(this.name, this.surname, this.email,this.age,this.cellNo,this.password);
+    this.user = new Authenticate(this.name, this.surname, this.email,this.age,this.cellNo);
     console.log(this.user);
     this.authenticateService.signUpUser(this.user)
   }

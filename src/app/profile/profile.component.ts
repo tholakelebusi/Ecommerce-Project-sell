@@ -9,14 +9,14 @@ import { AuthenticateService } from '../authenticate.service';
 })
 export class ProfileComponent implements OnInit {
 
-  userProfile ;
-  constructor(public  autheServive:AuthenticateService, private router:Router) { }
+ 
+  userProfile
+  constructor(public autheServive:AuthenticateService, public router:Router) { }
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {
     this.userProfile = this.autheServive.userInfo
-   console.log(this.userProfile);
-   
+    console.log(this.userProfile);
+    
 
   }
 

@@ -74,13 +74,17 @@ h2 {
 }
 h4 {
   font-size: 13px;
-  color: #00baff;
+  color:black;
   letter-spacing: 1px;
-  margin-bottom: 25px
+  margin-bottom: 25px;
+  font-style:inherit;
+  font-weight: 400;
 }
 p {
-  font-size: 16px;
-  line-height: 26px;
-  margin-bottom: 20px;
-  color: #666;
+    font-size: 13px;
+    color:black;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-style:inherit;
+    font-weight: 400;
 }
