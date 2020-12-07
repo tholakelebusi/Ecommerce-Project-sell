@@ -1,22 +1,30 @@
 <div class="container">
-	<img width="35%" height="350" style="text-align: center; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSWUH3ujfg1tlGs_u2zFoW1jzKiUAyCZ-i2w&usqp=CAU');background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255,0.6);
-    background-blend-mode: lighten;">
+
 
 	<div class="centered">
 		<form [formGroup]="contactForm"  (ngSubmit)="onSubmit()">
-			<h2>Add Product </h2>
+			<h2>Add new Product </h2>
 
-	
-		<input placeholder="product Name" name="Product Name" formControlName="productName" type="string" matInput required >
-		<input placeholder="Product Price" name="ProductP" formControlName="productPrice" type="string" matInput required >
-		<input placeholder="Product Description" name="productD" formControlName="productDescrip" type="string" matInput required >
-		<input placeholder="Product Image" name="productPic" formControlName="productPic" type="text" matInput required >
-		<input placeholder="Product sizes" name="sizes" formControlName="sizes" type="text" matInput required >
+			<label>Product Name</label>
+		<input  name="Product Name" formControlName="productName" type="string" matInput required >
+		<br>
+		<label>Product Price</label>
+		<input  name="ProductP" formControlName="productPrice" type="string" matInput required >
+		<br>
+		<label>Product Decription</label>
+		<input  name="productD" formControlName="productDescrip" type="string" matInput required >
+		<br>
+		<label>Product Picture</label>
+		<input  name="productPic" formControlName="productPic" type="text" matInput required >
+		<br>
+		<label>Product size</label>
+		<input  name="sizes" formControlName="sizes" type="text" matInput required >
+		<br>
 
 
 
 
-		<button type="submit" class="btn btn-success" >Add Product</button>
+		<button class="btn btn-success" click="onSubmit()">Add Product</button>
 	
 	
 

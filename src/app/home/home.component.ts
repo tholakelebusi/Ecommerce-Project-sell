@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   moreinfor: boolean = false;
   productList: Bags[] = [];
   Products: Observable<any[]>
- 
+
 
 
   constructor(private bagInfo: ProductService, private router: Router) { }
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   viewProduct(pro) {
 
-    //  this.moreinfor=true;
+  
     this.bagInfo.selectedProduct = pro
     this.router.navigate(['/view']);
 

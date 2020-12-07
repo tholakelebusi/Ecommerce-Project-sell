@@ -19,10 +19,11 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   login() {
     this.authenticateService.signInUser(this.email, this.password)
-    this.loggonInUser = this.authenticateService.userInfo
-    this.router.navigateByUrl("/")
+    this.loggonInUser = this.authenticateService.signInUser
+    this.router.navigateByUrl("/profile")
 
   }
 

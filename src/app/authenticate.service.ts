@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase';
+import  firebase from 'firebase';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Authenticate } from './authenticate';
 
@@ -16,10 +16,10 @@ export class AuthenticateService {
 
   signUpUser(user)
   {
-    var database = firebase.default.database();
+    var database = firebase.database();
 
     let message=""
-    firebase.default.auth().createUserWithEmailAndPassword(user.email,user.password).catch((error) =>{
+    firebase.auth().createUserWithEmailAndPassword(user.email,user.password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -30,7 +30,7 @@ export class AuthenticateService {
 
     if(results){
       message = "successfully registered"
-      firebase.default.database().ref('users/' + results.user.uid).set({
+      firebase.database().ref('users/' + results.user.uid).set({
         name: user.name,
         email: user.email,
        surname : user.surname,
@@ -53,7 +53,7 @@ signInUser(email,password){
   let user :any
   let message = "";
 
-  firebase.default.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
+  firebase.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -112,7 +112,7 @@ signInUser(email,password){
 // }
 
  resetPassword(email: string) {
-   var auth = firebase.default.auth();
+   var auth = firebase.auth();
    return auth.sendPasswordResetEmail(email)
     .then(() => console.log("email sent"))
     .catch((error) => console.log(error))
@@ -130,7 +130,7 @@ ForgotPassword(passwordResetEmail) {
 
 
     logout(){
-      firebase.default.auth().signOut().then(()  =>{
+      firebase.auth().signOut().then(()  =>{
         // Sign-out successful.
         console.log("Sign-out successful.");
         
@@ -143,14 +143,14 @@ ForgotPassword(passwordResetEmail) {
 
 //    this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo);
 getCurrentUser(){
-   
-  firebase.default.auth().onAuthStateChanged((user) =>{
-    if (user) {
-      console.log(user)
-      var userId = user.uid;
-      firebase.default.database().ref('/users/' + userId).once('value').then( userProfile =>{
-      this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
-      console.log(this.userInfo);
+
+  firebase.auth().onAuthStateChanged((users) =>{
+    if (users) {
+    //console.log(user)
+      var userId = users.uid;
+     firebase.database().ref('/users/' + userId).once('value').then( userProfile =>{
+    this.userInfo = new Authenticate(userProfile.val().name,userProfile.val().surname,userProfile.val().email,userProfile.val().age, userProfile.val().cellNo)
+     console.log(this.userInfo)
  
       })
      } else {
@@ -162,6 +162,7 @@ getCurrentUser(){
   
   
 }
+
 
 
 }

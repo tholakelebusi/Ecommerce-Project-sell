@@ -61,7 +61,7 @@ export class AddproductComponent implements OnInit {
   productid = "";
 
 
-  /*addBag() {
+  addBag() {
 
     const newProductss = {
       "productName": this.productName,
@@ -75,12 +75,12 @@ export class AddproductComponent implements OnInit {
     this.homeView = true;
     this.addform = false;
 
-    //addBags
-    this.bagInfo.addBags(this.contactForm.value);
+    
+    this.bagInfo.addBagss(this.contactForm.value);
     console.log("submitted");
 
   }
-  */
+  
 
   onSubmit() {
  

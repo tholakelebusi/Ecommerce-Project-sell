@@ -14,11 +14,13 @@ export class ProfileComponent implements OnInit {
   constructor(public autheServive:AuthenticateService, public router:Router) { }
 
   ngOnInit(): void {
-    this.userProfile = this.autheServive.userInfo
-    console.log(this.userProfile);
     
-
+    this.userProfile = this.autheServive.getCurrentUser()
+    this.userProfile=this.autheServive.userInfo
+    console.log(this.userProfile);
   }
+
+
 
   logout(){
     console.log("loggin out");
